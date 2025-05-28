@@ -1,3 +1,4 @@
+![ChatGPT Image May 28, 2025, 08_14_45 PM](https://github.com/user-attachments/assets/7d304e72-23f8-4601-8262-d8dab5b98030)
 # 🎓 BCA Companion @ VBU
 
 Welcome to **BCA Companion @ VBU** — a comprehensive, organized, and ever-growing resource hub for students pursuing **Bachelor of Computer Applications (BCA)** at **Vinoba Bhave University, Hazaribagh**.
