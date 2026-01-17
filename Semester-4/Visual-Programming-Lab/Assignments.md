@@ -2428,3 +2428,718 @@ namespace AdonetPrograms
 5. **DataGridView**: Program 5 demonstrates binding data to UI controls
 
 ---
+
+# Quick Reference - Short Programs
+
+These are simple, exam-friendly programs covering key concepts from each unit.
+
+---
+
+## Unit 1: .NET Framework Basics
+
+### Program: Display CLR Version
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("CLR Version: " + Environment.Version);
+        Console.WriteLine("OS Version: " + Environment.OSVersion);
+        Console.WriteLine(".NET Runtime: " + Environment.Version.Major);
+    }
+}
+```
+
+---
+
+## Unit 2: C# Fundamentals - Short Programs
+
+### Program: Data Types Demo
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int age = 21;
+        float marks = 85.5f;
+        char grade = 'A';
+        bool pass = true;
+        string name = "Rahul";
+
+        Console.WriteLine($"Name: {name}, Age: {age}");
+        Console.WriteLine($"Marks: {marks}, Grade: {grade}, Pass: {pass}");
+    }
+}
+```
+
+### Program: Arithmetic Operators
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int a = 10, b = 3;
+
+        Console.WriteLine($"Addition: {a + b}");
+        Console.WriteLine($"Subtraction: {a - b}");
+        Console.WriteLine($"Multiplication: {a * b}");
+        Console.WriteLine($"Division: {a / b}");
+        Console.WriteLine($"Modulus: {a % b}");
+    }
+}
+```
+
+### Program: If-Else Statement
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int marks = 75;
+
+        if (marks >= 40)
+            Console.WriteLine("Result: Pass");
+        else
+            Console.WriteLine("Result: Fail");
+    }
+}
+```
+
+### Program: Switch Statement
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int day = 3;
+
+        switch (day)
+        {
+            case 1: Console.WriteLine("Monday"); break;
+            case 2: Console.WriteLine("Tuesday"); break;
+            case 3: Console.WriteLine("Wednesday"); break;
+            default: Console.WriteLine("Other day"); break;
+        }
+    }
+}
+```
+
+### Program: For Loop
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Numbers 1 to 5:");
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.Write(i + " ");
+        }
+    }
+}
+```
+
+### Program: While Loop
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int i = 1;
+        while (i <= 5)
+        {
+            Console.WriteLine($"Count: {i}");
+            i++;
+        }
+    }
+}
+```
+
+### Program: Array Example
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        foreach (int num in numbers)
+        {
+            Console.WriteLine(num);
+        }
+    }
+}
+```
+
+---
+
+## Unit 3: .NET Assemblies
+
+### Program: Assembly Information
+
+```csharp
+using System;
+using System.Reflection;
+
+class Program
+{
+    static void Main()
+    {
+        Assembly asm = Assembly.GetExecutingAssembly();
+
+        Console.WriteLine("Assembly Name: " + asm.GetName().Name);
+        Console.WriteLine("Version: " + asm.GetName().Version);
+        Console.WriteLine("Location: " + asm.Location);
+    }
+}
+```
+
+---
+
+## Unit 4: Windows Forms - Short Programs
+
+### Program: Simple Message Box
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class Program
+{
+    [STAThread]
+    static void Main()
+    {
+        MessageBox.Show("Hello, Welcome to C#!", "Greeting");
+    }
+}
+```
+
+### Program: Button Click Event
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    Button btn;
+
+    public MyForm()
+    {
+        btn = new Button();
+        btn.Text = "Click Me";
+        btn.Location = new System.Drawing.Point(50, 50);
+        btn.Click += Btn_Click;
+        this.Controls.Add(btn);
+    }
+
+    void Btn_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("Button Clicked!");
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: TextBox Input
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    TextBox txt;
+    Button btn;
+
+    public MyForm()
+    {
+        txt = new TextBox();
+        txt.Location = new System.Drawing.Point(20, 20);
+        this.Controls.Add(txt);
+
+        btn = new Button();
+        btn.Text = "Show";
+        btn.Location = new System.Drawing.Point(20, 50);
+        btn.Click += (s, e) => MessageBox.Show("You typed: " + txt.Text);
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: CheckBox Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    CheckBox chk;
+    Button btn;
+
+    public MyForm()
+    {
+        chk = new CheckBox();
+        chk.Text = "I agree to terms";
+        chk.Location = new System.Drawing.Point(20, 20);
+        this.Controls.Add(chk);
+
+        btn = new Button();
+        btn.Text = "Submit";
+        btn.Location = new System.Drawing.Point(20, 50);
+        btn.Click += (s, e) =>
+        {
+            if (chk.Checked)
+                MessageBox.Show("Thank you!");
+            else
+                MessageBox.Show("Please accept terms!");
+        };
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: RadioButton Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    RadioButton rdMale, rdFemale;
+    Button btn;
+
+    public MyForm()
+    {
+        rdMale = new RadioButton();
+        rdMale.Text = "Male";
+        rdMale.Location = new System.Drawing.Point(20, 20);
+        this.Controls.Add(rdMale);
+
+        rdFemale = new RadioButton();
+        rdFemale.Text = "Female";
+        rdFemale.Location = new System.Drawing.Point(20, 50);
+        this.Controls.Add(rdFemale);
+
+        btn = new Button();
+        btn.Text = "Show Gender";
+        btn.Location = new System.Drawing.Point(20, 80);
+        btn.Click += (s, e) =>
+        {
+            string gender = rdMale.Checked ? "Male" : "Female";
+            MessageBox.Show("Gender: " + gender);
+        };
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: ComboBox Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    ComboBox cmb;
+    Button btn;
+
+    public MyForm()
+    {
+        cmb = new ComboBox();
+        cmb.Items.AddRange(new string[] { "BCA", "BBA", "BSc" });
+        cmb.Location = new System.Drawing.Point(20, 20);
+        this.Controls.Add(cmb);
+
+        btn = new Button();
+        btn.Text = "Select";
+        btn.Location = new System.Drawing.Point(20, 50);
+        btn.Click += (s, e) => MessageBox.Show("Course: " + cmb.Text);
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: ListBox Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    ListBox lst;
+    Button btn;
+
+    public MyForm()
+    {
+        lst = new ListBox();
+        lst.Items.AddRange(new string[] { "C#", "Java", "Python" });
+        lst.Location = new System.Drawing.Point(20, 20);
+        lst.Size = new System.Drawing.Size(100, 60);
+        this.Controls.Add(lst);
+
+        btn = new Button();
+        btn.Text = "Select";
+        btn.Location = new System.Drawing.Point(20, 90);
+        btn.Click += (s, e) =>
+        {
+            if (lst.SelectedItem != null)
+                MessageBox.Show("Selected: " + lst.SelectedItem);
+        };
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: DateTimePicker Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    DateTimePicker dtp;
+    Button btn;
+
+    public MyForm()
+    {
+        dtp = new DateTimePicker();
+        dtp.Location = new System.Drawing.Point(20, 20);
+        this.Controls.Add(dtp);
+
+        btn = new Button();
+        btn.Text = "Show Date";
+        btn.Location = new System.Drawing.Point(20, 50);
+        btn.Click += (s, e) => MessageBox.Show("Date: " + dtp.Value.ToShortDateString());
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: Timer Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    Label lbl;
+    Timer timer;
+    int count = 0;
+
+    public MyForm()
+    {
+        lbl = new Label();
+        lbl.Text = "0";
+        lbl.Location = new System.Drawing.Point(50, 50);
+        this.Controls.Add(lbl);
+
+        timer = new Timer();
+        timer.Interval = 1000;
+        timer.Tick += (s, e) => { count++; lbl.Text = count.ToString(); };
+        timer.Start();
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: ProgressBar Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    ProgressBar pb;
+    Button btn;
+
+    public MyForm()
+    {
+        pb = new ProgressBar();
+        pb.Location = new System.Drawing.Point(20, 20);
+        pb.Maximum = 100;
+        this.Controls.Add(pb);
+
+        btn = new Button();
+        btn.Text = "Load";
+        btn.Location = new System.Drawing.Point(20, 50);
+        btn.Click += (s, e) => { pb.Value = 75; };
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: OpenFileDialog Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    Button btn;
+    Label lbl;
+
+    public MyForm()
+    {
+        btn = new Button();
+        btn.Text = "Open File";
+        btn.Location = new System.Drawing.Point(20, 20);
+        btn.Click += Btn_Click;
+        this.Controls.Add(btn);
+
+        lbl = new Label();
+        lbl.Location = new System.Drawing.Point(20, 60);
+        lbl.Size = new System.Drawing.Size(300, 20);
+        this.Controls.Add(lbl);
+    }
+
+    void Btn_Click(object sender, EventArgs e)
+    {
+        OpenFileDialog ofd = new OpenFileDialog();
+        if (ofd.ShowDialog() == DialogResult.OK)
+        {
+            lbl.Text = ofd.FileName;
+        }
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+### Program: SaveFileDialog Example
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+class MyForm : Form
+{
+    Button btn;
+
+    public MyForm()
+    {
+        btn = new Button();
+        btn.Text = "Save File";
+        btn.Location = new System.Drawing.Point(20, 20);
+        btn.Click += (s, e) =>
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text Files|*.txt";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Saved to: " + sfd.FileName);
+            }
+        };
+        this.Controls.Add(btn);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new MyForm());
+    }
+}
+```
+
+---
+
+## Unit 5: ADO.NET - Short Programs
+
+### Program: Simple Database Connection
+
+```csharp
+using System;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main()
+    {
+        string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TestDB;Integrated Security=True";
+
+        SqlConnection conn = new SqlConnection(connStr);
+        conn.Open();
+        Console.WriteLine("Connected Successfully!");
+        conn.Close();
+    }
+}
+```
+
+### Program: Execute SQL Command
+
+```csharp
+using System;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main()
+    {
+        string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TestDB;Integrated Security=True";
+
+        using (SqlConnection conn = new SqlConnection(connStr))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Students(Name) VALUES('John')", conn);
+            int rows = cmd.ExecuteNonQuery();
+            Console.WriteLine($"Rows affected: {rows}");
+        }
+    }
+}
+```
+
+### Program: Read Data with DataReader
+
+```csharp
+using System;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main()
+    {
+        string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TestDB;Integrated Security=True";
+
+        using (SqlConnection conn = new SqlConnection(connStr))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Students", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Console.WriteLine(reader["Name"].ToString());
+            }
+        }
+    }
+}
+```
+
+### Program: DataAdapter and DataSet
+
+```csharp
+using System;
+using System.Data;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main()
+    {
+        string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TestDB;Integrated Security=True";
+
+        SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Students", connStr);
+        DataSet ds = new DataSet();
+        adapter.Fill(ds, "Students");
+
+        foreach (DataRow row in ds.Tables["Students"].Rows)
+        {
+            Console.WriteLine(row["Name"]);
+        }
+    }
+}
+```
+
+---
+
+## Summary Table - Short Programs
+
+| Unit | Topic | Programs Count |
+|------|-------|----------------|
+| 1 | .NET Framework | 1 |
+| 2 | C# Fundamentals | 7 |
+| 3 | Assemblies | 1 |
+| 4 | Windows Forms | 12 |
+| 5 | ADO.NET | 4 |
+
+**Total Short Programs: 25**
+
+---
